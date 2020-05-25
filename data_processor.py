@@ -29,19 +29,15 @@ class DataProcessor(object):
             neg_path = "./datasets/aclImdb/test/neg/"
         pos_files= os.listdir(pos_path)  #获取文件夹下的所有文件名称
         neg_files = os.listdir(neg_path)
-        for i, file_name in enumerate(pos_files):
-            if(i > 1000):
-                break
-        #for file_name in pos_files: #遍历文件夹
+        
+        for file_name in pos_files: #遍历文件夹
             file_position = pos_path + file_name
             with open(file_position, "r",encoding='utf-8') as f:  #打开文件
                 data = f.read()   #读取文件
                 datas.append(data)
                 labels.append([1,0]) #正类标签维[1,0]
-        for i, file_name in enumerate(neg_files):
-            if(i > 1000):
-                break
-        #for file_name in neg_files:
+        
+        for file_name in neg_files:
             file_position = neg_path + file_name 
             with open(file_position, "r",encoding='utf-8') as f:
                 data = f.read()
